@@ -35,7 +35,17 @@ describe('ProfileService', () => {
 
   describe('createProfile', () => {
     it('should create a profile', async () => {
-      const createProfileDto = { userId: 'userId', about: 'about' };
+      const createProfileDto = {
+        userId: 'userId',
+        about: 'about',
+        photo: 'photo',
+        interests: ['interest'],
+        displayName: 'displayName',
+        gender: 'gender',
+        birthday: new Date(),
+        height: 100,
+        weight: 50
+      };
       profileModel.create.mockResolvedValue(createProfileDto);
       const result = await service.createProfile(createProfileDto);
       expect(result).toEqual(createProfileDto);
